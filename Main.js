@@ -1,17 +1,17 @@
-// OS¯•Ê—p
-string jsData;
+// OSè­˜åˆ¥ç”¨
+var jsData;
 let os;
 
-// DOM\’zŠ®—¹ƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰“o˜^
+// DOMæ§‹ç¯‰å®Œäº†ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©ç™»éŒ²
 window.addEventListener("DOMContentLoaded", init);
 
-// ‰Šú‰»
+// åˆæœŸåŒ–
 function init() {
 	jsData="";
-    // ŠÈˆÕ“I‚ÈOS”»’è
+    // ç°¡æ˜“çš„ãªOSåˆ¤å®š
     os = detectOSSimply();
     if (os == "iphone") {
-        // safari—pBDeviceOrientation API‚Ìg—p‚ğƒ†[ƒU‚É‹–‰Â‚µ‚Ä–á‚¤
+        // safariç”¨ã€‚DeviceOrientation APIã®ä½¿ç”¨ã‚’ãƒ¦ãƒ¼ã‚¶ã«è¨±å¯ã—ã¦è²°ã†
         document.querySelector("#permit").addEventListener("click", permitDeviceOrientationForSafari);
 
         window.addEventListener(
@@ -26,12 +26,12 @@ function init() {
             true
         );
     } else{
-        window.alert("PC–¢‘Î‰ƒTƒ“ƒvƒ‹");
+        window.alert("PCæœªå¯¾å¿œã‚µãƒ³ãƒ—ãƒ«");
     }
 }
 
 
-// ƒWƒƒƒCƒƒXƒR[ƒv‚Æ’n¥‹C‚ğƒZƒ“ƒT[‚©‚çæ“¾
+// ã‚¸ãƒ£ã‚¤ãƒ­ã‚¹ã‚³ãƒ¼ãƒ—ã¨åœ°ç£æ°—ã‚’ã‚»ãƒ³ã‚µãƒ¼ã‹ã‚‰å–å¾—
 function orientation(event) {
     let absolute = event.absolute;
     let alpha = event.alpha;
@@ -40,11 +40,11 @@ function orientation(event) {
 
     let degrees;
     if(os == "iphone") {
-        // webkitCompasssHeading’l‚ğÌ—p
+        // webkitCompasssHeadingå€¤ã‚’æ¡ç”¨
         degrees = event.webkitCompassHeading;
 
     }else{
-        // deviceorientationabsoluteƒCƒxƒ“ƒg‚Ìalpha‚ğ•â³
+        // deviceorientationabsoluteã‚¤ãƒ™ãƒ³ãƒˆã®alphaã‚’è£œæ­£
         degrees = compassHeading(alpha, beta, gamma);
     }
 
@@ -53,21 +53,21 @@ function orientation(event) {
         (degrees > 337.5 && degrees < 360) ||
         (degrees > 0 && degrees < 22.5)
     ) {
-        direction = "–k";
+        direction = "åŒ—";
     } else if (degrees > 22.5 && degrees < 67.5) {
-        direction = "–k“Œ";
+        direction = "åŒ—æ±";
     } else if (degrees > 67.5 && degrees < 112.5) {
-        direction = "“Œ";
+        direction = "æ±";
     } else if (degrees > 112.5 && degrees < 157.5) {
-        direction = "“Œ“ì";
+        direction = "æ±å—";
     } else if (degrees > 157.5 && degrees < 202.5) {
-        direction = "“ì";
+        direction = "å—";
     } else if (degrees > 202.5 && degrees < 247.5) {
-        direction = "“ì¼";
+        direction = "å—è¥¿";
     } else if (degrees > 247.5 && degrees < 292.5) {
-        direction = "¼";
+        direction = "è¥¿";
     } else if (degrees > 292.5 && degrees < 337.5) {
-        direction = "–k¼";
+        direction = "åŒ—è¥¿";
     }
 
     document.querySelector("#direction").innerHTML =
@@ -79,7 +79,7 @@ function orientation(event) {
     jsData = direction + "," + degrees  + "," + absolute + "," + alpha + "," + beta + "," + gamma;
 }
 
-// ’[––‚ÌŒX‚«•â³iAndroid—pj
+// ç«¯æœ«ã®å‚¾ãè£œæ­£ï¼ˆAndroidç”¨ï¼‰
 // https://www.w3.org/TR/orientation-event/
 function compassHeading(alpha, beta, gamma) {
     var degtorad = Math.PI / 180; // Degree-to-Radian conversion
@@ -112,7 +112,7 @@ function compassHeading(alpha, beta, gamma) {
     return compassHeading * (180 / Math.PI); // Compass Heading (in degrees)
 }
 
-// ŠÈˆÕOS”»’è
+// ç°¡æ˜“OSåˆ¤å®š
 function detectOSSimply() {
     let ret;
     if (
@@ -120,7 +120,7 @@ function detectOSSimply() {
         navigator.userAgent.indexOf("iPad") > 0 ||
         navigator.userAgent.indexOf("iPod") > 0
     ) {
-        // iPad OS13‚Ìsafari‚ÍƒfƒtƒHƒ‹ƒguMacintoshv‚È‚Ì‚Å•Ê“r—v‘Î‰
+        // iPad OS13ã®safariã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã€ŒMacintoshã€ãªã®ã§åˆ¥é€”è¦å¯¾å¿œ
         ret = "iphone";
     } else if (navigator.userAgent.indexOf("Android") > 0) {
         ret = "android";
@@ -131,7 +131,7 @@ function detectOSSimply() {
     return ret;
 }
 
-// iPhone + Safari‚Ìê‡‚ÍDeviceOrientation API‚Ìg—p‹–‰Â‚ğƒ†[ƒU‚É‹‚ß‚é
+// iPhone + Safariã®å ´åˆã¯DeviceOrientation APIã®ä½¿ç”¨è¨±å¯ã‚’ãƒ¦ãƒ¼ã‚¶ã«æ±‚ã‚ã‚‹
 function permitDeviceOrientationForSafari() {
     DeviceOrientationEvent.requestPermission()
         .then(response => {
