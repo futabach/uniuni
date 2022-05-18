@@ -10,13 +10,6 @@
   <body>
           <ul>
             <input type="button" id="permit" value="SafariでDeviceOrientationを許可"/>
-            <li>【方角】<span id="direction"></span></li>
-            <li>【absolute】<span id="absolute"></span></li>
-            <li>【alpha】<span id="alpha"></span></li>
-            <li>【beta】<span id="beta"></span></li>
-            <li>【gamma】<span id="gamma"></span></li>
-            <li><input type="button" value="OK" onClick="onClick()" /></li>
-     
         </ul>
 
     <div id="unity-container" class="unity-desktop">
@@ -206,14 +199,8 @@ function orientation(event) {
         direction = "北西";
     }
 
-    document.querySelector("#direction").innerHTML =
-        direction + " : " + degrees;
-    document.querySelector("#absolute").innerHTML = absolute;
-    document.querySelector("#alpha").innerHTML = alpha;
-    document.querySelector("#beta").innerHTML = beta;
-    document.querySelector("#gamma").innerHTML = gamma;
     jsData = direction + "," + degrees  + "," + absolute + "," + alpha + "," + beta + "," + gamma;
-    unityGame.SendMessage('Sample', 'tttt','aaaa'+jsData);
+    unityGame.SendMessage('Sample', 'tttt',jsData);
 }
 
 // 端末の傾き補正（Android用）
@@ -287,12 +274,6 @@ function permitDeviceOrientationForSafari() {
       
       
       
-      
-      function onClick() {
-    document.querySelector("#direction").innerHTML ="aaaaaaaaaa";
-  window.alert('aaaa'+jsData);
- unityGame.SendMessage('Sample', 'tttt','aaaa'+jsData);
-}      
       
       
     </script>
