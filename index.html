@@ -3,20 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | WEBGL2022_05_18</title>
+    <title>Unity WebGL Player | webgltest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-        <ul>
+          <ul>
             <input type="button" id="permit" value="SafariでDeviceOrientationを許可"/>
             <li>【方角】<span id="direction"></span></li>
             <li>【absolute】<span id="absolute"></span></li>
             <li>【alpha】<span id="alpha"></span></li>
             <li>【beta】<span id="beta"></span></li>
             <li>【gamma】<span id="gamma"></span></li>
+            <li><input type="button" value="OK" onClick="onClick()" /></li>
+     
         </ul>
-     <input type="button" value="OK" onClick="onClick()" />
+
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
@@ -29,7 +31,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">WEBGL2022_05_18</div>
+        <div id="unity-build-title">webgltest</div>
       </div>
     </div>
     <script>
@@ -67,12 +69,12 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/out.loader.js";
       var config = {
-        dataUrl: buildUrl + "/out.data.gz",
-        frameworkUrl: buildUrl + "/out.framework.js.gz",
-        codeUrl: buildUrl + "/out.wasm.gz",
+        dataUrl: buildUrl + "/out.data",
+        frameworkUrl: buildUrl + "/out.framework.js",
+        codeUrl: buildUrl + "/out.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "WEBGL2022_05_18",
+        companyName: "test",
+        productName: "webgltest",
         productVersion: "0.1",
         showBanner: unityShowBanner,
       };
@@ -116,7 +118,7 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
-        unityGame = unityInstance;
+          unityGame = unityInstance;
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
@@ -127,6 +129,7 @@
       };
       document.body.appendChild(script);
       
+
       
       
       
@@ -286,10 +289,12 @@ function permitDeviceOrientationForSafari() {
       
       
       function onClick() {
-    document.querySelector("#direction").innerHTML ="aaa";
+    document.querySelector("#direction").innerHTML ="aaaaaaaaaa";
   window.alert('aaaa'+jsData);
- unityGame.SendMessage('Sample', 'tttt','a'+jsData);
-}
+ unityGame.SendMessage('Sample', 'tttt','aaaa'+jsData);
+}      
+      
+      
     </script>
   </body>
 </html>
