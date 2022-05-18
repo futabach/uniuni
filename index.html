@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>xxxx</title>
+    <title>Unity WebGL Player | webgltest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -179,7 +179,7 @@ function orientation(event) {
         degrees = compassHeading(alpha, beta, gamma);
     }
     // スマホ縦持ちを前提として、方角とβ角度だけ渡す
-    jsData = "" + degrees  + "," beta;
+    jsData = "" + degrees  + ","+ beta;
     unityGame.SendMessage('Sample', 'tttt',jsData);
 }
 
