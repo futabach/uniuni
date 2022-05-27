@@ -178,7 +178,7 @@ function orientation(event) {
         degrees = compassHeading(alpha, beta, gamma);
     }
     // スマホ縦持ちを前提として、方角とβ角度だけ渡す
-    jsData = "" + degrees  + ","+ beta;
+    jsData = "" + degrees  + ","+ alpha + ","+ beta + ","+ gamma;
     unityGame.SendMessage('Sample', 'tttt',jsData);
 }
 
